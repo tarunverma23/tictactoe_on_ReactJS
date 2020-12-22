@@ -5,12 +5,23 @@ const props = {
     value: "X",
 };
 
-const {value} = props; 
+const {value} = props;
+
+// Style is a default prop used in React. 
+// We Use camelcase CSS code inside default Style as they are JS objects and not pure CSS.
+const style = {
+    background: 'lightgreen',
+    border: '2px solid darkgreen',
+    fontSize: '30px',
+    fontWeight: '800',
+    cursor: 'pointer',
+    outline: 'none', 
+};
 
 
 const Square = (props) => (
 
-    <button onClick={props.onClick}>
+    <button style={style} onClick={props.onClick}>
         {props.value}
     </button>
 
