@@ -1,11 +1,11 @@
 import React from 'react';
 
-const props = {
-    onClick: () => "function",
-    value: "X",
-};
+// const props = {
+//     onClick: () => "function",
+//     value: "X",
+// };
 
-const {value} = props;
+// const {value} = props;
 
 // Style is a default prop used in React. 
 // We Use camelcase CSS code inside default Style as they are JS objects and not pure CSS.
@@ -16,23 +16,24 @@ const style = {
     fontWeight: '800',
     cursor: 'pointer',
     outline: 'none', 
+    color:'black',
 };
 
-
-const Square = (props) => (
-
-    <button style={style} onClick={props.onClick}>
-        {props.value}
-    </button>
-
-);
-
-// const Square = ({value, onClick}) => (
-
-//     <button onClick={onClick}>
-//         {value}
+// const Square = (props) => (
+//     <button style={style} onClick={props.onClick}>
+//         {props.value}
+//         {console.log(props.value)}
+        
 //     </button>
+
 // );
+
+const Square = ({value, onClick}) => (
+
+    <button style={style} onClick={onClick}>
+        {value}
+    </button>
+);
 
 
 

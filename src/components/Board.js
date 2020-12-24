@@ -6,7 +6,7 @@ const style ={
     borderRadius: '10px',
     width: '250px',
     height: '250px',
-    margin: '15% auto',
+    margin: '8% auto',
     display: 'grid',
     gridTemplate: 'repeat(3, 1fr)/ repeat(3, 1fr)',
 };
@@ -15,7 +15,7 @@ const Board = ({squares, onClick}) => (
 
     <div style={style}>
         {squares.map((square, i) => (
-             <Square key={i} value = {square} onClick={()=> onClick("dummy value")}></Square>
+             <Square key={i} value = {square} onClick={()=> onClick(i)}></Square>
         ))}
 
         {/* or we can use this syntax which has retun statement in it
@@ -23,7 +23,6 @@ const Board = ({squares, onClick}) => (
         {squares.map((square, i) => {
             return <Square key={i} value = {square} onClick={()=> onClick("dummy value")}></Square>
         })} */}
-
     </div>
     
 );
