@@ -22,7 +22,7 @@ const Game = () => {
     const winner = calculateWinner(history[stepNumber]);
 
     const handleClick = i => {
-
+        
         const timeInHistory = history.slice(0, stepNumber + 1);
         const current = timeInHistory[stepNumber];
         const squares = [...current];
@@ -33,7 +33,7 @@ const Game = () => {
 
         // if the game is won or user clicks on an occupied sqare, we return nothing
         // for this handle click event;
-        if (winner || boardCopy[i]) return;
+        if (winner || squares[i]) return;
 
         //to put an X or O on the selected square
         // boardCopy[i] = xIsNext ? 'X' : 'O';
@@ -46,23 +46,37 @@ const Game = () => {
         setStepNumber(timeInHistory.length);
         setXisNext(!xIsNext);
 
+
     }
 
-    const jumpTo = () => {
-
+    // const jumpTo = () => {
+    const jumpTo = step => {
+        setStepNumber (step);
+        setXisNext(step %2 === 0);
     }
 
     const renderMoves = () => (
-        <button onClick = {()=> setBoard(Array(9).fill(null))}>
-            Start Game
-        </button>
+
+        history.map((_step, move) => {
+            const destination = move ? `Go to move#${move}` : 'Go to start';
+            return (
+                <li key={move}>
+                    <button onClick={()=> jumpTo(move)}> {destination} </button>
+                </li>
+            )
+        }
+        )
+        // <button onClick = {()=> setBoard(Array(9).fill(null))}>
+        //     Start Game
+        // </button>
     )
    
     return (
 
         // we can wrap one Element inside a Fragment which is: <>.... </>
         <>
-            <Board squares={board} onClick={handleClick} />
+            {/* <Board squares={board} onClick={handleClick} /> */}
+            <Board squares={history[stepNumber]} onClick={handleClick} />
 
             <div style={styles}>
                 <p> {winner ? 'Winner: ' + winner: 'Next Player: '+ (xIsNext ? 'X' : 'O')} </p>
