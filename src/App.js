@@ -1,10 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
 import Game from './components/Game';
+import Header from  './components/Header'; 
 
 function App() {
   return (
+    <>
+    <Header />
     <Game />
+    </>
+   
+    
+    
     // <div className="App">
     //   <header className="App-header">
     //     <img src={logo} className="App-logo" alt="logo" />

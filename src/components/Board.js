@@ -4,16 +4,16 @@ import Square from './Square';
 const style ={
     border: '4px solid darkgreen',
     borderRadius: '10px',
-    width: '250px',
-    height: '250px',
-    margin: '8% auto',
+    width: '350px',
+    height: '350px',
+    margin: '7% auto',
     display: 'grid',
     gridTemplate: 'repeat(3, 1fr)/ repeat(3, 1fr)',
 };
 
 const Board = ({squares, onClick}) => (
 
-    <div style={style}>
+    <div style={style} className="">
         {squares.map((square, i) => (
              <Square key={i} value = {square} onClick={()=> onClick(i)}></Square>
         ))}

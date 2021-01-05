@@ -6,6 +6,7 @@ import {calculateWinner} from '../helpers';
 const styles = {
     width:'200px',
     margin: '20px auto',
+    
 };
 
 const Game = () => {
@@ -45,8 +46,6 @@ const Game = () => {
         setHistory([...timeInHistory, squares]);
         setStepNumber(timeInHistory.length);
         setXisNext(!xIsNext);
-
-
     }
 
     // const jumpTo = () => {
@@ -60,12 +59,14 @@ const Game = () => {
         history.map((_step, move) => {
             const destination = move ? `Go to move#${move}` : 'Go to start';
             return (
-                <li key={move}>
-                    <button onClick={()=> jumpTo(move)}> {destination} </button>
-                </li>
+                <ul >
+                    <li key={move} className="">
+                    <button className="btn btn-success" onClick={()=> jumpTo(move)}> {destination} </button>
+                    </li>
+                </ul> 
             )
         }
-        )
+    )
         // <button onClick = {()=> setBoard(Array(9).fill(null))}>
         //     Start Game
         // </button>
